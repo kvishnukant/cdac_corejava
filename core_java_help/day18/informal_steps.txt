@@ -1,0 +1,76 @@
+1. extract tomcat rar
+2. ensure 1st entry in path --- <jdk1.7>/bin
+3. set env vars --- JAVA_HOME=<jdk.1.7>
+4. TOMCAT_HOME=e:\apache tomcat
+
+5 launch --- <tomcat_home>/bin/startup.bat
+5.5 attach client --- http://localhost:9090 --should show tomcat welcome page.
+5.6 Manager web appln is not enabled as def. ----<conf>/tomcat-users.xml --- add 
+<role rolename="manager-gui"/>
+<user username="manager" password="" roles="manager-gui"/>
+
+6. Create j2ee compliant web-appln --- under webapps(=tomcat specific hot deployment folder) 
+<test_web>/<WEB-INF>/web.xml(from root)--- metadata-complete="false" --- without this anno. servlets DONT get deployed.
+
+under <WEB-INF> ---- <classes> & <lib> --- empty
+under <test_web> --- <src>
+create welcome.html under <test_web>
+
+run html content --- http://localhost:9090/test_web/welcome.html
+
+Servlet steps
+1. set classpath--- <tomcat-home>/lib/servlet-api.jar
+2. create TestServlet.java --- under <src>
+package stmt, import --- 
+overview of servlet API
+Servlet -i/f --- init.service,destroy
+imple by GenericServlet ---prto inde servlet
+extended by HttpServlet --- HTTP proto specific servlet.
+has alrdy overriden service(rq,rs)
+---chks which HTTP method method is used for sending req.
+if get --- doGet(rq,rs) or if post --- doPost(rq,rs)
+
+@WebServlet("/hello123")
+public class TestServlet extends HttpServlet
+override -- doGet
+1. set content type ---rs.setContentType("text/html");--- u r telling web browser whatever follows as HTTP resp ---its type is HTML text
+2. open writer strm  --- to open buffered & char o/p strm connected to clnt browser ---use PrintWriter.
+pw=rs.getWriter();
+pw.print("hello from servlets...");
+pw.close();
+
+3. compile servlet from <src>
+javac -d ..\web-inf\classes\ basic\TestServlet.java
+4. Compiled class will be in - <web-inf>\classes\basic\TestServlet.class
+
+4. Run servlet ---- http://localhost:9090/test_web/hello123
+
+
+clnt sends req URL --- http://localhost:9090/test_web/hello_xml
+
+rq reaches ---- host ---Web srvr --- WC --- root of ur web-appln
+WC opens web.xml ----searches --- matching url-pattern -- from url-pattern --- WC gets servlet name ---seraches for matching servlet-name under servlet tag--- from servlet-name gets F.Q servlet clas name.
+WC locate/load & inst servlet class
+WC invokes -- init() -- success- service() -- if get --- doGet  -produces dyn resp(pw.print) --- sent to WC --- web srvr --- HTTP resp ---sent to clnt browser.
+
+@ server shut down --- or reloading context(=web-appln) --- WC invokes destroy() & then GC servlet inst.
+
+
+
+
+http://localhost:9090/day2_web/
+
+URL generated after submitting the form 
+http://localhost:9090/day2_Web/test_input?f1=abc
+
+
+
+http://localhost:9090/day2_web/test_input?f1=abcd
+
+
+http://localhost:9090/day2_web/test_input
+
+
+
+
+

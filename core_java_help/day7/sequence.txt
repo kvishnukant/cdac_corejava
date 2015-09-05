@@ -1,0 +1,37 @@
+List <E> --- sub interface of Collection<E>
+Represent ordered collection.(order is significant)
+Allows duplicate refs
+Supports index based operations
+doesn't guarantee --- const time performance
+un-sorted by default.
+
+
+Regarding Iterator
+1. java.lang.IllegalStateException --- Can occur when trying to remove (itr.remove()) element before invoking next.
+
+2. ConcurrentModificationException --- Can occur when trying to use iterator after structurally modifying the list(w/o using Iterator methods)
+
+3. NoSuchElementException
+
+
+Objective --- Applying ArrayList to a practical scenario
+1. Create Emp --- id,nm,sal,joinDate
+2. Create empty ArrayList of emps
+3. Populate AL  --- hire emp
+4. Display AL contents --- toString, for-each(attaching Itearator & ListIterator -- Home work)
+5. Check if a particular emp record exists.
+Hint --- contains i/p emp id & o/p --- exists | does n't exist
+
+6. If emp exists --- display emp details OR raise custom exc --- empnot found
+7. Update emp info --- i/p id & inc sal
+8. Fire emp by index or Object ref.
+9.Home work --- Upgrade emp salary for senior emps.
+i/p -- inc & threshold date
+o/p --- updated list.
+
+
+
+
+
+
+

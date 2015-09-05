@@ -1,0 +1,51 @@
+1. assgn help --chat
+2. daemon thrds vs user thrds
+3. applying thrd safety to JComps.
+4.
+
+customer care center --- clnt portion
+
+main-- constr--initGUI ---accept center code 
+winClosing --- uploadComplaints--out.writeUTF(code), out.writeObject(hm)
+confirm ack & then terminate.
+
+initNet --- sock,out,in(OOS,OIS)
+
+
+server portion
+--- D.M -- MUST store all complaints from diff. centers correctly
+HM<String(center code),HM<Integer(compliant id),Cust Complaint>> -- outer 
+main--constr--initGUI,initNet same as earlier
+ClntHandler thrd ---
+constr -- out,in(OOS,OIS), start
+run()
+{
+   1. read center code --code 
+   2. readObject --- hm
+synched(outer) {
+3. outer.put(code,hm);
+}
+4. send ack
+out.writeUTF(ack);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

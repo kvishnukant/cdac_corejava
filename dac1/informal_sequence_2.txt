@@ -1,0 +1,234 @@
+auto-boxing
+double--->java.lang.Double
+Double--->Object   -- automatically due to up-casting --- since java.lang.Object is ultimate super-class of all java classes.
+ANY super type reference can directly(w/o type-casting) refer to any sub-type object. 
+
+
+Objective ---
+Create Account class
+instance variables(data members) --- id,name,type,bal
+Business logic 
+1. constructor -- create a/c
+2. Get a/c summary
+3. Deposit 
+4. Withdraw
+5. Remove a/c 
+
+Create Tester class ---
+Prompt user for a/c details & create a/c object
+& show a/c summary.
+Objective --- place Account & Tester -- under same pkg -- bank
+
+Inheritance --- OOD -- IS A relationship
+why ? --- code  re-usability
+Terms 
+Super class(base class) , sub-class(derived class)
+
+keyword --- extends
+eg ---
+class A {.....}
+class B extends A {....}
+
+Universal super class of all java classes --- java.lang.Object
+
+Meaning of inheritance -- sub-class IS A super-class and something more (additional data member + additional func) --optional 
+and something modified .(modified behaviour --- method overriding)
+
+
+
+Types of Inheritance
+1. single --- legal
+eg --- class A {.....}
+class B extends A {....}
+
+2. Multilevel ---legal
+eg --- class A {.....}
+class B extends A {....}
+class C extends B {....}
+
+how constructor invocation will take place --- when 
+C c1=new C();
+
+
+Object's constr---A's constr---B's constr---C's constr
+
+3. Multiple --- illegal
+class C extends A,B{...} ---compiler err
+
+Testing access specifiers along with inheritance
+1. Create class A -- in pkg p1
+& add 4 instance vars ---
+private int i;
+int j;
+protected int k;
+public int l;
+A()
+{
+  s.op.("A's state" +i+" "+j+" "+k+"  "+l);
+}
+A.java
+
+2.  Create class B -- in pkg p1 -- as a sub-class of A
+B()
+{
+  s.op.("B's state" +i+" "+j+" "+k+"  "+l);
+}
+B.java
+
+3.  Create class C -- in pkg p1 -- 
+C()
+{
+  A a1=new A();
+  s.op.("A's state" +a1.i+" "+a1.j+" "+a1.k+"  "+a1.l);
+}
+C.java
+
+
+4.  Create class D -- in pkg p2 -- as a sub-class of A
+D()
+{
+  
+  s.op.("D's state" +i+" "+j+" "+k+"  "+l);
+}
+
+D.java
+
+5.  Create class E -- in pkg p2 -- 
+E()
+{
+  A a1=new A();
+  s.op.("A's state" +a1.i+" "+a1.j+" "+a1.k+"  "+a1.l);
+}
+E.java
+
+
+Objective 
+create Account class in pkg -- bank.mybank
+create Tester class in bank.mybank.tester & test the same
+
+Objective 
+Revisiting single inheritance along with run-time polymorphism
+
+
+why method overriding ?
+To change the form of the method behaviour @ run time 
+(run time polymorphism)
+
+There is no virtual keyword in java ---
+All java methods , declared in super class can be overridden by sub-classes --- if they are NOT --- private OR static or final
+
+Objective --- create A & its sub-class B in same pkg -- inh
+
+Create  TestInh.java --- in tester pkg. & create objs.
+
+Emp < ---  Mgr, test1
+Emp < ---  Worker, test2
+
+
+Tester
+
+main(..)
+{
+Emp e =new Mgr(...);
+e.computeSal();
+show(e);
+e=new Worker();
+e.computeSal();
+show(e);
+
+}
+
+
+public static  void show(Emp e)
+{
+  if (e instanceof Mgr)
+  ((Mgr)e).test1();
+  if (e instanceof Worker)
+  ((Worker)e).test2();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

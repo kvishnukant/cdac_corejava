@@ -1,0 +1,36 @@
+As per Java language specs ------
+ Widening primitive conversions do not lose information about the overall magnitude of a numeric value. Indeed, conversions widening from an integral type to another integral type do not lose any information at all; the numeric value is preserved exactly. Conversions widening from float to double in strictfp expressions also preserve the numeric value exactly; however, such conversions that are not strictfp may lose information about the overall magnitude of the converted value.
+
+    Conversion of an int or a long value to float, or of a long value to double, may result in loss of precision-that is, the result may lose some of the least significant bits of the value. In this case, the resulting floating-point value will be a correctly rounded version of the integer value, using IEEE 754 round-to-nearest mode 
+
+In other words even though you may lose information, you know that the value will still be in the overall range of the target type.
+
+	
+	
+ Widening Primitive Conversion
+
+    The following 19 specific conversions on primitive types are called the widening primitive conversions:
+
+        byte to short, int, long, float, or double
+        short to int, long, float, or double
+        char to int, long, float, or double
+        int to long, float, or double
+        long to float or double
+        float to double
+
+    Widening primitive conversions do not lose information about the overall magnitude of a numeric value.
+
+
+
+    Conversion of an int or a long value to float, or of a long value to double, may result in loss of precision-that is, the result may lose some of the least significant bits of the value. In this case, the resulting floating-point value will be a correctly rounded version of the integer value
+
+To put it another way, the JLS distinguishes between a loss of magnitude and a loss of precision.
+
+int to byte for example is a (potential) loss of magnitude because you can't store 500 in a byte.
+
+long to float is a potential loss of precision but not magnitude because the value range for floats is larger than that for longs.
+
+So the rule is:
+
+    Loss of magnitude: explicit cast required;
+    Loss of precision: no cast required.

@@ -1,0 +1,10 @@
+ExpertLogin 
+---main---constr -- initGUI--- windowClosing ---store cust info
+
+-- initBL --- restoreInfo --- hm of complaints load & expert credentials load from bin file -- 
+
+login --aP --- validate Expert -- YES --- i/p dialog -- ask which platform --  search --- val based ---hm --- Coll<CustComp> --- 
+for (CustCompl c : coll)
+if (c.getPlaf().equals(...) && sts ---pending)
+ c.setSts("serviced")
+

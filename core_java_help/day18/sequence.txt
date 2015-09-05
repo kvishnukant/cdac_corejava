@@ -1,0 +1,39 @@
+1. assgn help -- chat appln
+2. applying thrd safety to swing comps
+3. user vs daemon thrds.
+4. Customer Care Center -- client & multi-threaded server.
+Client side -- when clnt frm closes -- uploads suitable form of collection to the server.
+When clnt frm is launched -- connect to rem server & accept --- collection of complaints from server.
+clnt side sequence
+1. restoreInfo ---
+out.writeUTF(code);
+String resp = in.readUTF();
+non-empty 
+setNums((ArrayList<Integer>) in.readObject());
+setIndex(in.readInt());
+in.readObject(); --- hm
+
+
+Server --- for supporting multiple centers
+HM<String(code),CenterInfo> --- centers
+CenterInfo --class -- imple Serializabel
+DM -- int index,AL<I> , HM<I,Compl>
+def constr, setters 
+
+run() logic for ClntHandler thread ---
+1. 
+code = in.readUTF()
+2. if (centers.containsKey(code)) {
+CenterInfo c1=centers.get(code);
+out.writeUTF("non-empty")
+ out.writeObject(c1.getAL());
+out.writeInt(c1.getIndex());
+out.writeObject(c1.getComps())
+}
+else --- empty
+
+
+
+
+
+

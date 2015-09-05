@@ -1,0 +1,12 @@
+NOTE : 
+1. When u ABORT(i.e w/o proper closing socket inst) clnt or srvr --AND other remote end is using br.readLine -- other end gets Socket exc --conn lost by peer(at br.readLine)
+
+If u are using din.readUTF() --- u get EOFExc
+
+NOTE that if other end is not reading or writing data from/to socket u will not get any exc.
+
+1.5 When u ABORT(i.e w/o proper closing socket inst) clnt or srvr --AND other remote end is using sc.hasNextLine --it will ret false & then u can end receiver thread.
+
+2.When u propery close socket inst on srvr or clnt & if other end is using br.readLine or any other read method --- then it rets null. BUT doesn't throw exc.
+
+3.When u propery close socket inst on srvr or clnt & if other end is using sc.hasNextLine() or any other checking method (hasNext() or hasNextInt() ...) --- then it rets false. BUT doesn't throw exc.

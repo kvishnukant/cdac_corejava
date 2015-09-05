@@ -1,0 +1,55 @@
+initNet ----on server side
+try {
+ss
+ds=ss.accept();
+out--- DOS
+in---OIS
+accept....(in,out)
+} catch(..)
+{
+}
+
+
+Regarding multiple clnt handling ---server portion
+ss -- once in beginning
+while (true)
+{
+   ds
+   out
+   in 
+   acceptdataNsendResp();--- readObject
+}
+above is blocking --- one clnt handling IS blocking accepting cn from other clnts.--- separate --- cn establishment from indi. clnt handling.
+main --- thrd --- for cn establishment & create new user defined thrd -- per EACH clnt & dedicate entire clnt handling to the same thrd.
+while (true)
+{
+   ds=ss.accept();
+  new ClntHandler(ds);
+}
+
+class ClntHandler extends Thread
+{
+//D.M
+ds,in,out
+ //constr --- save ds, out,in,start()
+  
+
+   run()
+{
+     try {
+     while (true)
+       acceptDataNSendResult(in,out);
+    } catch(..)
+{
+} finally {
+    ds.close();
+}
+}
+}
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+ChatClient extends JFrame imple AL
+main--constr --1. initGUI(l1,l2,t1,t2) ---windowClosing --if sock != null--- close socket., attach AL to text field for xmit data .
+2. initNet --- create socket (cn establishment) --- PW(autoflush) & BR or scanner  / DIS & DOS --- create ReceiverThread inst (sock)
+
+actionPerformed --- pw.println(t1.getText) , clr t1
+
+inner class -- receiver thrd -- extends Thread
+run()
+{
+   s
+   while(s=br.readLine() != null)
+     t2.append(s);
+//handle exc --- or EOS condition --- if sock != null ---close socket & sock=null.
+}

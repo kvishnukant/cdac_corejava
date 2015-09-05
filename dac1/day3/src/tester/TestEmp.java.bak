@@ -1,0 +1,14 @@
+package tester;
+import org.*;
+
+class TestEmp 
+{
+	public static void main(String[] args) 
+	{
+		Emp e1=new Emp(101,"abc",12345);
+		Emp e2=new Emp(101,"abc",12345);
+		System.out.println(e1);
+		System.out.println(e2);
+
+	}
+}

@@ -1,0 +1,171 @@
+1. Create Java application (java prog) to display the average of i/p numbers(can be double/float/integers) :( hint : Double.parseDouble.)
+
+2. Accept Month from user(No 1-12 for Jan-Dec) & display the season associated with the month.
+
+
+3. Create Java application (java prog) to display the cmd line argument in reverse manner.
+
+4.Create Java application for the Cell phone charges bill: Accept the user’s plan and no. of calls made in a month as cmd line args. (eg : Plan-A,Plan-B,Plan-C. Fixed charges for these plans are 200,250,300) 
+In the 1st step keep metering of the calls as constant. 
+Calls between 0-100 free.
+ Calls between  101-300 amount per call 0.80 
+Calls  between 301-450 1Rs 
+and higher no : 1.5 
+Using the formula Net charges = fixed charges +(no of calls*amount) , compute & display the bill.
+
+5. Accept the number from the user as the command line argument within the range of 100-300. If number is outside the range, then display appropriate err message. If in range, check if the number is prime or not & display the result accordingly.
+ 
+Day 2
+1. Create class A....E hierarchy as explained & confrim rules associated with access specifiers.(test with instance variables + methods)
+
+1. Create a class rectangle in package "geom" . The class has private attributes length and width, each of which defaults to 1. It should have member methods that calculate the perimeter and area of the rectangle. It should have set and get functions for both length and width. The set functions should verify that length and width are each floating-point numbers larger than 0.0 and less than 20.0. 
+Write TestRect class in package "test_geom" : to create 2 rectangles & invoke setters/geters & display perimeter & area.
+
+2. Create Java Application for the following .
+Create Point class Point2D in"geom" package  : for representing a point in x-y co-ordinate system.
+Create a parameterized constructor to accept x & y co-ords.
+Add show method : to return  the x & y coords .(public String show())
+Add isEqual method  : boolean returning method : must ret. true if both points are having same x,y co-ords or false otherwise. : (public boolean isEqual(Point p))
+Add calcDistance method which will return the distance between 2 points.
+(public double calcDistance(Point p))
+
+Write TestPoint class in package "tester" with a main method 
+Create 2 points by taking cmd line args. Use show method to display the co-ords of 2 points.
+Use isEqual method : to chk the equality of 2 points.(sop(p1.isEquals(p2))
+Use calcDistance method to compute the distance between 2 points.(sop(p1.calcDistance(p2))
+
+Day 4
+1. Bank Assignment
+1.1  Create  Account class in the package com.core.banking
+In Account class : Add the private Data members. : account num ,customer name,type,balance.
+
+1.2 Provide the param. constr to create new account.
+
+1.3 write a method to return String form of  a/c summary(MUST use toString) . 
+
+1.4 Add withdraw, deposit, transfer funds  methods for a/c transactions.
+
+1.5 Create TestBank .java  : in the com.core.tester pkg, create main (...) & Supply following. functionality. 
+Accept all data i/ps via scanner.
+Accept from user --- max no of accts OR fix it as the constant(public static final -- declared outside of main method)
+
+Menu 
+1. Create A/c : I/p - no,name,type,bal,date  O/p : a/c created successfully.
+2. display A/c summary --- i/p a/c no , o/p -- a/c summary or a/c not found exception
+
+3. Deposit :  I/p --- a/c no & amount
+4. Withdraw : I/P -- a/c no & amount
+5. Transfer : I/p -- src a/c No,dest a/c no , transfer amount
+6. Remove A/c  -- I/p account no.
+7. Exit
+
+Day 5
+1. Create Java application for fixed stack & growable stack of employees functionality.(Hint : Stack interface & imple. class FixedSt & GrowableSt) From tester class --- display Menu
+1 -- Choose Fixed Stack
+2 -- Choose Growable Stack
+Accept following options only after initial selection.
+3 -- Push data
+4 --- Pop data
+5 -- Exit
+
+2. Go through all ready code samples(including co-variance,protected) & method overriding & exc handling.
+
+3. Look into clone() & Cloneable i/f & try to create clone of Emp or Account or any User defined type.
+
+Day 6
+1. Differentiate clearly between -- final,finally,finalize(Object class)
+
+2. Create Java application for storing the customer details of the Online e-shop utility. Online part of e-shop can be later developed using the web-appln in advanced java.
+
+Details about Customer :
+(custId(int)--automatically generated (unique --prim key) ,email(string),dateOfBirth(Date),contactInfo -- has-a relationship: create it as the separate class (countryCode,state,zipCode,phone
+Items -- StringBuilder (which customer will purchase later --- purchasing options will be added later), equals method(id based)
+
+
+Validations : 1. Customer's age > 18 yrs.
+2. email must contain : @ character.
+3. As a scenario --Suppose we are supporting items delivery only to certain states (MH,TN,UP) --- any other state --- invalid i/p exc.(Custom exc)
+
+
+In a Tester application : Support the following functionality via choices.
+
+Must Create suitable array to store customers.
+Note -- Must create array based Customers, accept data , validate the same, in case of invalid i/p --- raise custom exc(cust_exc.InvalidInputException), if valid register customer.
+
+Choice 1. Add new customer : accept cust details , validate the same. If validation err, raise the custom exception , display proper err msg via catch clause.
+If validations succeed, then generate custId, create the customer record(object) & add it to the customer array & return the CustId to the customer along with the success msg.
+
+Choice 2. View All Customer  details.(via for-each)
+
+
+Choice 3 : Get Specific Customer Detail --- I/P Customer ID
+O/p --- Customer rec not found, pls register OR Customer details.(equals MUST be used)
+
+Choice 4 : Exit
+
+Day 8
+1. Differentiate between Arrays.sort Vs Collections.sort
+2. Differentiate with examples -- Comparable & Comparator
+3. Day 6 assignment --- Replace Tester (earlier was array based) by ArrayList based.
+
+Day 9
+1. Day 6 assignment --- Replace Tester (earlier was array based) by ArrayList based & ADD few more options.
+New OPtions
+1. Un subscribe a customer -- i/p cust id 
+2. Un subscribe a customer -- i/p cust email
+3. Apply discount on all customers registered from MH state.
+4. Sort custs as per asc cust ID --- Natural ordering based
+5. Sort custs as per asc cust email--- Custom ordering based
+6. Sort custs as per --- Cust age  based -- custom oredring
+7. Sort custs as per zip code based --- custom ordering
+
+2. Go through HashMap API & codes developed.
+
+Day 10
+0.  Combine scanner & Buffered reader to read emp data from console in buffered manner & store the same in ArrayList.
+
+1. Replace in earlier assignment ArrayList by suitable map implementation class.
+
+2.  Extend Day 9 assignment(Now using HashMap or TreeMap) --- Before terminating java application, save Customer data on text file in buffered manner(Hint -- PrintWriter)
+Restore customer data from text file , at application start-up  & continue.
+
+Day 11
+1. For Generic & Collection
+Create Generic Queue<T>(growable) & Stack<T>(growable) using suitable API (Hint -- LinkedList<T>)
+
+2. Extend Day 9 assignment(Customer based using HashMap or TreeMap) --- Before terminating java application, save Customer data on binary file in buffered manner(Hint -- DataOutputStream)
+Restore customer data from binary file , at application start-up  & continue.
+
+Day 12
+Go through all swing frames related code & event handling
+
+Day 13
+1. Go through GUI, Collection & I/O integration code samples.
+2. Prepare suitable front end for the final form of the custoemr assignment -- replace DataInput & DataOutputStreams by Object streams.
+
+Day 15
+1. Must complete single bouncing ball assignment.
+2. Go through all code samples created so far(especially from test_synchro).
+3. If time permits --- multiple bouncing balls.
+
+Day 16.
+1. Reading assgn --- Object class API -- wait,notify,notifyAll,hashCode,equals
+2. Develop any application(JFrame or JApplet based) based upon synchronization & ITC -- eg -- water level controller or multiple balls reaching top or horizontal & vertical thrds eg -- as per dicussed.
+3. Go thro TCP IP primer.
+
+
+Day 17 & 18
+Single chat clinet & server --- using user defined receiver thread(as discussed)
+
+Day 19
+1. Go through readme jdbc till Callable Statement API
+2. Complete Customer Care Center based assignment .
+2.1 When Server is terminating(before System.exit) -- Store all complaints on bin file using serialization.(complaints.ser)  --- no need of applyinh thrd safety
+2.2 When Server starts  --- check if data file exists -- read complaints from bin. file & populate the map(outer map) --- thrd safety reqd -- no
+2.3 On client side --- supply center code & down load complaints collection from server -- if null -- start with empty map , if non null --- continue with downloaded populated map..
+
+
+
+
+
+

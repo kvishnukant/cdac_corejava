@@ -1,0 +1,106 @@
+diff between  
+thrds blocked on mon Vs blocked on wait ---- possible un-blocking triggers
+1. tmout over
+2. interrupt
+3 notify or notifyAll (reco)
+
+Regarding Set<E> features.
+1. Doesn't allow duplicate refs.
+2. Guarantees const time performance for add/remove/contains/size operations 
+3. Allows single null ref.
+4. Doesn't add any new behaviour (unlike list implemetations) BUT changes inherited behaviour from Collection<E> -- super i/f
+5. Doesn't support index based ops.
+6. Prog MUST override hashCode & equals as per the specified contract(if (ref1.equals(ref2) ---- ref1.hashCode() = ref2.hashCode() , converse optional BUT reco --- for faster working of set) for correct working of Sets.
+7. can attach iterator(for-each) 
+
+Imple. classes --- HashSet-   un-ordered & un-sorted Set imple. class
+(fastest among all set imple classes)
+TreeSet --- Sorted set --- can be sorted as per Natural Ordering (Comparable i/f) OR custom ordering (Comparator)
+
+LinkedHashSet --- Ordered Set -- remembers order of insertion.
+
+Objective --- Create HashSet of Integers & confirm -- no dups , search , remove, iterator , sorting
+
+Replace Java data types by UDT
+
+
+
+Regarding correct overrding of hashCode & equals -- required for UDTs
+1. Identify PK member/s
+2. Override equals usong PK members
+3. Override hashCode -- to generate int value based upon same PK data members.
+
+
+Networking Primer
+1. service --- functionality exported over remote JVMs.(on the same host OR any different host)
+server --- service provider
+client --- requestor of services.
+local  -- from within same JVM
+remote  -- outside current JVM (may be running on same Host or different host)
+2. TCP --- 
+connection oriented --- cn established --- F -- max retries over --- JA gets SocketExc/IOExc/ConnectExc. 
+S --- data xfer (req/resp exchange) --- cn closed 
+
+Reliable --- TCP pkt ---- Hdr --- Data --CRC 16 ---
+receiver will confirm correctnes of data based on CRC --- sends ack/nack accordingly.
+
+Full duplex --- send & rec concurrently
+
+Stream Based --- can attach I/O streams post cn establishment.
+
+TCP listener/server portion --- can support inherently multiple clients.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+Objective ---
+Identify disadvantage of current emp organization. -- un-necessary method def.
+
+fixed above disadvantage - by abstract method & class 
+
+
+case 1 : //hire mgr-- id nm basic bonus
+emps[counter++] =new Mgr(sc.nextInt(),....);
+break;
+
+
+case 3 ://disp all org dtls
+for (Emp e : emps) {
+if (e != null) {
+ sop(e +"net sal "+e.computenetSal());
+  if (e instanceof Mgr)
+    sop(((Mgr)e).getPerfBonus());
+else 
+}
+}
+
+m1 --- 101 abc 5000 456
+w1 --- 23 def 2345 10 50
+m2 -- 34 abc2 8000 567
+w2 --- 56 def2 3000 12 30
+
+
+
+

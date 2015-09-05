@@ -1,0 +1,10 @@
+There are many ways to create your own thread type: subclass java.lang.Thread class, or implementing java.lang.Runnable and pass it to Thread constructor or java.util.concurrent.ThreadFactory. What is the difference, and which one is better?
+
+1, The practical reason is, a Java class can have only one superclass. So if your thread class extends java.lang.Thread, it cannot inherit from any other classes. This limits how you can reuse your application logic.
+
+2, From a design point of view, there should be a clean separation between how a task is identified and defined, between how it is executed. The former is the responsibility of a Runnalbe impl, and the latter is job of the Thread class.
+
+3, A Runnable instance can be passed to other libraries that accept task submission, e.g., java.util.concurrent.Executors. A Thread subclass inherits all the overhead of thread management and is hard to reuse.
+
+4, Their instances also have different lifecycle. Once a thread is started and completed its work, it's subject to garbage collection. An instance of Runnalbe task can be resubmitted or retried multiple times, though usually new tasks are instantiated for each submission to ease state management.
+

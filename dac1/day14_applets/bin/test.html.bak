@@ -1,0 +1,12 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> Applet launching Page</TITLE>
+ 
+ </HEAD>
+
+ <BODY>
+  <applet code="swing_applets.MyApplet" width="500" height="300">
+  </applet>
+ </BODY>
+</HTML>

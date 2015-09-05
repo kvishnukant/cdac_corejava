@@ -1,0 +1,33 @@
+Chat srvr/clnt related help
+ChatClnt --- extends JFrame & imple AL
+D.M --- l1,l2,t1,t2,sock
+main--- constr --
+1.initGUI --- t1.addAL(..)
+winClosing --- if (sock != null) --close sock
+2.initNet --- sock inst (cn established) -- attach data strms --- String ---PW(autoFlush=true) & BR OR PW/SC OR DOS/DIS 
+---In above step -- create only PW.(BR can be created from thrd class constr) 
+---create Receiver Thread  --
+new ReceiverThread(Socket sock)
+
+actionPerformed --- pw.println(t1.getText()) , clr tf.
+
+ReceiverThrd --- inner class
+D.M ---
+sock,br
+constr --- save sock,attach br,start thrd
+
+run()
+{
+   try {
+     while(s=br.readLine() != null)
+	{
+                     t2.append(s);
+	}
+   } catch(...)
+{
+  close sock. -- null 
+}
+}
+
+
+

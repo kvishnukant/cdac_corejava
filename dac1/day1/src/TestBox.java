@@ -1,0 +1,24 @@
+/*
+Create JA -- which allows user to supply 3 dims as cmd line args. --- create Box object & disp dims & disp vol.
+
+*/
+class TestBox 
+{
+	public static void main(String[] ss) 
+	{
+		double d1=Double.parseDouble(ss[0]);
+		double d2=Double.parseDouble(ss[1]);
+		double d3=Double.parseDouble(ss[2]);
+		Box b1;
+		b1=new Box(d1,d2,d3);
+		Box b2=b1;
+		b1=null;
+
+		b2.displayDims();
+	//	 b1.displayDims();
+	//	System.out.println(b1);
+			b2=null;
+			b1=new Box(12,1,3);
+		System.out.println("Hello World!");
+	}
+}

@@ -1,0 +1,224 @@
+//solution to find prime nos
+class FindPrime {
+  public static void main(String args[]) {
+    int num;
+    boolean isPrime = true;
+
+    num = Integer.parseInt(args[0]);
+	//chk if within the range -- add that chk 
+    for(int i=2; i <= num/i; i++) {
+      if((num % i) == 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    if(isPrime) System.out.println("Prime");
+    else System.out.println("Not Prime");
+  }
+}
+
+class TwoDArray {
+  public static void main(String args[]) {
+    int twoD[][]= new int[4][5];
+    int i, j, k = 0;
+
+    for(i=0; i<4; i++) 
+      for(j=0; j<5; j++) {
+        twoD[i][j] = k;
+        k++;
+      }
+
+    for(i=0; i<4; i++) {
+      for(j=0; j<5; j++)
+        System.out.print(twoD[i][j] + " ");
+      System.out.println();
+    }
+  }
+}
+
+
+class TwoDAgain {
+  public static void main(String args[]) {
+    int twoD[][] = new int[4][];
+    twoD[0] = new int[1];
+    twoD[1] = new int[2];
+    twoD[2] = new int[3];
+    twoD[3] = new int[4];
+
+    int i, j, k = 0;
+
+    for(i=0; i<4; i++) 
+      for(j=0; j<i+1; j++) {
+        twoD[i][j] = k;
+        k++;
+      }
+
+    for(i=0; i<4; i++) {
+      for(j=0; j<i+1; j++)
+        System.out.print(twoD[i][j] + " ");
+      System.out.println();
+    }
+  }
+}
+
+
+
+class OverloadDemo {
+  void test() {
+    System.out.println("No parameters");
+  }
+
+  
+  void test(int a) {
+    System.out.println("a: " + a);
+  }
+
+  
+  void test(int a, int b) {
+    System.out.println("a and b: " + a + " " + b);
+  }
+
+  
+  double test(double a) {
+    System.out.println("double a: " + a);
+    return a*a;
+  }
+}
+  
+class Overload {
+  public static void main(String args[]) {
+    OverloadDemo ob = new OverloadDemo();
+    double result;
+
+
+    ob.test(); 
+    ob.test(10);
+    ob.test(10, 20);
+    result = ob.test(123.25);
+    System.out.println("Result of ob.test(123.25): " + result);
+  }
+}
+
+
+class OverloadDemo {
+  void test() {
+    System.out.println("No parameters");
+  }
+
+  // Overload test for two integer parameters.
+  void test(int a, int b) {
+    System.out.println("a and b: " + a + " " + b);
+  }
+
+  // overload test for a double parameter and return type
+  void test(double a) {
+    System.out.println("Inside test(double) a: " + a);
+  }
+}
+  
+class Overload {
+  public static void main(String args[]) {
+    OverloadDemo ob = new OverloadDemo();
+    int i = 88;
+
+    ob.test(); 
+    ob.test(10, 20);
+
+    ob.test(i); // this will invoke test(double)
+    ob.test(123.2); // this will invoke test(double)
+  }
+}
+
+
+class Test {
+  void meth(int i, int j) {
+    i *= 2;
+    j /= 2;
+  }
+}
+
+class CallByValue {
+  public static void main(String args[]) {
+    Test ob = new Test();
+    int a = 15, b = 20;
+    
+    System.out.println("a and b before call: " +
+                       a + " " + b);
+
+    ob.meth(a, b); 
+
+    System.out.println("a and b after call: " +
+                       a + " " + b);
+  }
+}
+
+
+class Test {
+  int a, b;
+
+  Test(int i, int j) {
+    a = i;
+    b = j;
+  }
+
+  // pass an object
+  void meth(Test o) {
+    o.a *=  2;
+    o.b /= 2;
+  }
+}
+
+class CallByRef {
+  public static void main(String args[]) {
+    Test ob = new Test(15, 20);
+    
+    System.out.println("ob.a and ob.b before call: " +
+                       ob.a + " " + ob.b);
+
+    ob.meth(ob); 
+
+    System.out.println("ob.a and ob.b after call: " +
+                       ob.a + " " + ob.b);
+  }
+}
+
+
+// Returning an object.
+class Test {
+  int a;
+
+  Test(int i) {
+    a = i;
+  }
+
+  Test incrByTen() {
+    Test temp = new Test(a+10);
+    return temp;
+  }
+}
+
+class RetOb {
+  public static void main(String args[]) {
+    Test ob1 = new Test(2);
+    Test ob2;
+
+    ob2 = ob1.incrByTen();
+    System.out.println("ob1.a: " + ob1.a);
+    System.out.println("ob2.a: " + ob2.a);
+
+    ob2 = ob2.incrByTen();
+    System.out.println("ob2.a after second increase: "
+                        + ob2.a);
+  }
+}
+
+class A
+{
+  private int i,j;
+  @Override
+   String toString()
+   {
+	return "Testing toString : "+i+"  "+j;
+   }
+
+}

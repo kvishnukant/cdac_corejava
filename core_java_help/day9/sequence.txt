@@ -1,0 +1,167 @@
+//ano innner cls def -- to sort custs as per reg amt
+Collections.sort(l1,new Comparator<Cust>() 
+{
+@Override
+public int compare(Cust c1,Cust c2)
+{
+  return c1.getAmt()-c2.getAmt();
+}
+});
+
+
+generic method
+public <T> T[] toArray(T[] a)
+syntax---
+Type declaration is placed between method modifiers & ret type
+T -- type of element which is placed in ArrayList
+eg ---
+l1 --- AL<Cust>
+Cust[] custs = new Cust[l1.size()];
+custs=l1.toArray(custs);
+
+public HashMap(Map<? extends K,? extends V> m)
+? extends K 
+? -- wild card char in generic syntax -- ANY type
+extends -- keyword in generics specifying UPPER bound
+K -- Key type
+
+? extends K  --- Any type as Key or its sub type.
+? extends V  --- Any type as Value type or its sub type.
+
+Meaning of constr
+Create new map from the specified map having type as K,V or any of its sub types.
+
+
+
+Solve to confirm --legal or Illegal
+Account<----SavingAccount
+
+
+LinkedList<SavingAccount> l1=new LinkedList<>();
+l1.add(...);......add Saving a/cs refs. to l1
+ArrayList<SavingAccount> l2=new ArrayList<>(1l);
+
+ArrayList<Account> l2=new ArrayList<>(1l);
+
+HashSet<Account> hs=new HashSet<>();
+hs.add(ref1);......
+ArrayList<Account> l2=new ArrayList<>(hs);
+
+
+HashSet<SavingAccount> hs=new HashSet<>();
+hs.add(ref1);......
+ArrayList<Account> l2=new ArrayList<>(hs);
+
+Regarding Map
+Objective -- create suitable map to store customer info.
+Customer --- email,password,subAmt,subDate
+1. Identify K & V type
+HashMap<String,Customer>
+2. create empty map with def init capa & L.F
+3. Populate it.
+4. Debugging --- disp conts of map --- toString
+5. Customer supplies -- email
+disp cust dtls or throw cust exc.
+6. Update cust subscrption
+7. Un-subscribe cust
+8. Sort custs as per their email Ids
+(asc)
+9. Sort custs as per their email Ids
+(desc)
+
+10. Apply disc on custs -- registered before reg date.
+
+Limitations on Maps 
+1. Maps can be sorted ONLY as per key's criteria alone , cant support value based criteria easily.
+
+2. can't attach iterators/for-each/list iterators.
+i.e difficult for searching based upon any NON KEY based criteria.
+
+To fix --- get a collection view of a map (i.e convert map to collection)
+API of Map i/f
+
+1. To get set of keys associated with a Map
+Set<K> keySet(); --- returns Set of Keys(refs)
+2. To get collection of values from a map
+Collection<V> values(); --- rets collection of values(ref)
+3. To get set of Entries(key & val pair) ---
+Set<Map.Entry<K,V>> entrySet() --- returns set of entries
+
+
+
+
+
+11. Sort custs as per sub amt.
+
+-- Is sorting criteria Key based --- yes --- Can be done using TreeMap
+NO --- meaning if criteria is value based  --
+Steps
+1.
+Get Collection view of a Map --- values
+Collection<Customer> coll=hm.values();
+2. Explicitely convert Collection<V> to --- List type
+HOW ?
+Via Constructor(same support for LinkedList & Vector)
+ArrayList(Collection<? extends T> c)
+Usage
+ArrayList<Customer> l1=new ArrayList<>(coll);
+3. Collections.sort(List<T> l1) -- Natural ordering 
+OR 
+Collections.sort(List<T> l1, Comparator<T> c) -- Custom Ordering
+
+
+
+public TreeMap(Comparator<? super K> comparator)
+Creates empty TreeMap , which uses custom ordering criteria of Key type.
+? super K
+? --- ANY type or wild card
+super - keyword in generic syntax to supply lower bound 
+K -- Key type
+? super K --- Key type or its Super type
+Complete meaning of constr -- Create new empty TreeMap , using supplied Comparator i/f implementation class instance , BUT Comparator type MUST be K or its super type.
+
+
+
+
+API help for generating i/p dialog Box
+1. import javax.swing.JOptionPane
+public static String showInputDialog(Object title) --- rets in  string form user i/p
+If cancel -- rets null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

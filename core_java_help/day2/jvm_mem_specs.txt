@@ -1,0 +1,71 @@
+The object needs memory for its attributes (NOTE: for reference type var, the attribute stored is a pointer to the real object, which lies elsewhere in memory). No additional memory is needed for methods (code) as they are stored with the class.
+
+public class MyClass1 {
+  private int myNumber;
+}
+
+and
+
+public class MyClass2 {
+  private int myNumber;
+  public int MyMethod1() {
+  }
+  public int MyMethod2() {
+  }
+  public int MyMethod3() {
+  }
+  ....
+  public int MyMethod1000() {
+  }
+}
+
+use the same memory per instance.
+
+
+
+---------------------
+
+
+    Where is the method for my object stored
+
+They are stored within a Class object, which is kept in PermGen space.
+
+    and can I see that area if I dump my java app ?
+
+This is not trivial. JVM performs several optimizations like JIT compiling which makes this task harder.
+
+  
+There is just a single copy of every method per class, not per instance? This means that once the class is loaded by the ClassLoader, all methods of that class are stored in memory. It doesn't matter how many instances you create. That being said, you probably don't care how much memory do methods consume.
+
+It is present within java.lang.Class --- object (reflection)
+
+------------
+Heap memory
+
+The heap memory is the runtime data area from which the Java VM allocates memory for all class instances and arrays. The heap may be of a fixed or variable size. The garbage collector is an automatic memory management system that reclaims heap memory for objects.
+
+    Eden Space: The pool from which memory is initially allocated for most objects.
+
+    Survivor Space: The pool containing objects that have survived the garbage collection of the Eden space.
+
+    Tenured Generation: The pool containing objects that have existed for some time in the survivor space.
+
+Non-heap memory
+
+Non-heap memory includes a method area shared among all threads and memory required for the internal processing or optimization for the Java VM. It stores per-class structures such as a runtime constant pool, field and method data, and the code for methods and constructors. The method area is logically part of the heap but, depending on the implementation, a Java VM may not garbage collect or compact it. Like the heap memory, the method area may be of a fixed or variable size. The memory for the method area does not need to be contiguous.
+
+    Permanent Generation: The pool containing all the reflective data of the virtual machine itself, such as class and method objects. With Java VMs that use class data sharing, this generation is divided into read-only and read-write areas.
+The PermGen normally consists of the string literal pool and loaded classes.
+
+    Code Cache: The HotSpot Java VM also includes a code cache, containing memory that is used for compilation and storage of native code.
+
+-----------------------
+If I have an object that only has a few primitive data members, it takes up a small amount of memory and doesn't take very long at all to create. However, what happens if I have a lot of methods associated with that object? Does object instantiation have to take those into account at all?
+
+For example, let's say I have a Class with (insert  large number here) number of distinct methods I can call. Does the JVM take any longer to make an instance of that class than if I had no methods?
+
+No, Class with methods is stored once in a separate memory location (namely PermGen) and each object of a given class has only a single reference to its type (Class).
+
+Thus it doesn't matter how many methods your object has: two or two thousand - the object creation will take exactly the same amount of time.
+
+BTW the same holds true for method invocation - there is no performance hit when calling methods of an object having plenty of them compared to object having only few.

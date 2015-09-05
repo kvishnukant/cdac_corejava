@@ -1,0 +1,48 @@
+Using Scanner to accept data from User
+Creating 2 D array
+Packages
+Array of references.
+
+Objective ---
+Create Account class
+instance variables(data members) --- id,name,type,bal
+Business logic 
+1. constructor -- create a/c
+2. Get a/c summary
+3. Deposit 
+4. Withdraw
+5. Remove a/c 
+
+Create Tester class ---
+Prompt user for a/c details & create a/c object
+& show a/c summary.
+Creating user defined packages
+Need ?
+1. To group functionally similar classes together.
+2. Avoids name space collision
+3. Finer control over access specifiers.
+
+Objective -- 
+1. Place Account & TestAccount under same pkg --- bank
+java bank.TestAccount
+java Test
+2.  Place Account in bank.mybank & TestAccount under bank.mybank.tester package.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
